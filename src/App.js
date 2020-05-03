@@ -1,7 +1,27 @@
 import React from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import Todo from "./Todo";
+import About from "./About";
 
-class App extends React.Component {
+const App = () => (
+  <BrowserRouter>
+    <div>
+      <div>
+        <Link to="/">Home</Link>
+      </div>
+      <div>
+        <Link to="/about">About</Link>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+    </div>
+  </BrowserRouter>
+);
+
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
